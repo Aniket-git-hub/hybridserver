@@ -1,0 +1,11 @@
+challanNumber,challanDate,challanAmount,challanStatus,challanPaymentDate,violatorName,transactionId,state
+MHTP12345678,2023-05-15,1000,pending,,Rajesh Kumar,,MH
+MHTP23456789,2023-06-20,1500,disposed,2023-07-01,Suresh Patel,TXN-123456,MH
+MHTP34567890,2023-07-10,800,pending,,Amit Shah,,MH
+MHTP45678901,2023-08-05,2000,disposed,2023-08-20,Vijay Singh,TXN-234567,MH
+MHTP56789012,2023-09-12,1200,pending,,Rahul Mehta,,MH
+DLTP12345678,2023-04-18,1000,disposed,2023-05-01,Manoj Gupta,TXN-345678,DL
+DLTP23456789,2023-06-25,1500,pending,,Anil Sharma,,DL
+DLTP34567890,2023-07-15,750,disposed,2023-08-02,Raj Kapoor,TXN-456789,DL
+DLTP45678901,2023-08-30,2000,pending,,Sanjay Kumar,,DL
+DLTP56789012,2023-10-05,1200,disposed,2023-10-20,Vikram Singh,TXN-567890,DL
