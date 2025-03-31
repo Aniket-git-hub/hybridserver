@@ -8,6 +8,7 @@ import { apiRequestLogs, auditLogs } from './logs';
 import { notifications, userNotificationSettings } from './notifications';
 import { paymentTransactions } from './payments';
 import { companySubscriptions, subscriptionPlans } from './subscriptions';
+import { tokens } from './tokens';
 import { userInvitations, users } from './users';
 import { vehicleOwners, vehicles } from './vehicles';
 
@@ -188,4 +189,11 @@ export const auditLogsRelations = relations(auditLogs, ({ one }) => ({
         fields: [auditLogs.userId],
         references: [users.id],
     }),
+}));
+
+export const tokensRelations = relations(tokens, ({ one }) => ({
+    user: one(users, {
+        fields: [tokens.userId],
+        references: [users.id]
+    })
 }));

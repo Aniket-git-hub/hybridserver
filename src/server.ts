@@ -20,10 +20,7 @@ import { connectDB } from './config/db';
 const errorHandler = require('./middlewares/errorHandler');
 
 // Routes
-// const authRoutes = require('./routes/authRoutes');
-// const gameRoutes = require('./routes/gameRoutes');
-// const questionRoutes = require('./routes/questionRoutes');
-// const userRoutes = require('./routes/userRoutes');
+import authRoutes from './routes/V1/authRoutes';
 
 // Function to get local IP address
 const getLocalIPAddress = (): string => {
@@ -73,10 +70,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // API Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/games', gameRoutes);
-// app.use('/api/questions', questionRoutes);
-// app.use('/api/users', userRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 // Health check route
 app.get('/health', (req: Request, res: Response) => {

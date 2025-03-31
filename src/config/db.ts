@@ -2,8 +2,8 @@
 import dotenv from "dotenv";
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise";
+import * as schema from "../models/"; // Import all schemas
 const logger = require('../utils/logger');
-
 
 dotenv.config();
 
@@ -21,8 +21,8 @@ const poolConfig = {
 // Create the connection pool
 const pool = mysql.createPool(poolConfig);
 
-// Create the Drizzle ORM instance
-export const db = drizzle(pool);
+// Create the Drizzle ORM instance with schema
+export const db = drizzle(pool, { schema, mode: 'default' });
 
 /**
  * Tests the database connection

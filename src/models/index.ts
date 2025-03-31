@@ -8,9 +8,9 @@ export * from './schemas/logs';
 export * from './schemas/notifications';
 export * from './schemas/payments';
 export * from './schemas/subscriptions';
+export * from './schemas/tokens';
 export * from './schemas/users';
 export * from './schemas/vehicles';
-
 // Relations exports
 export * from './schemas/relations';
 
