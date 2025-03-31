@@ -1,0 +1,74 @@
+<!-- src/templates/emails/feature-update.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>New Features Available!</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#009688; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .button { display:
+			inline-block; padding: 12px 24px; background-color: #009688; color:
+			white; text-decoration: none; border-radius: 4px; margin: 20px 0;
+			font-weight: bold; } .footer { text-align: center; margin-top: 20px;
+			font-size: 12px; color: #777; } .feature-box { background-color:
+			#e0f2f1; padding: 15px; margin: 15px 0; border-radius: 5px;
+			border-left: 4px solid #009688; } .feature-item { margin-bottom:
+			20px; } .feature-title { font-weight: bold; color: #009688;
+			margin-bottom: 5px; } .feature-image { max-width: 100%; height:
+			auto; margin: 10px 0; border-radius: 5px; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>New Features Available!</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p>We're excited to announce that we've added several new
+					features to
+					{{appName}}
+					to help you manage your fleet more efficiently!</p>
+
+				<div class="feature-box">
+					<h3>What's New:</h3>
+
+					{{#each features}}
+						<div class="feature-item">
+							<div class="feature-title">{{this.title}}</div>
+							<p>{{this.description}}</p>
+							{{#if this.imageUrl}}
+								<img
+									src="{{this.imageUrl}}"
+									alt="{{this.title}}"
+									class="feature-image"
+								/>
+							{{/if}}
+						</div>
+					{{/each}}
+				</div>
+
+				<div style="text-align: center;">
+					<a href="{{whatsNewUrl}}" class="button">Explore New
+						Features</a>
+				</div>
+
+				<p>These updates are now available in your account. We recommend
+					taking a few minutes to explore these new features and see
+					how they can benefit your operations.</p>
+
+				<p>If you have any questions or need assistance with the new
+					features, please don't hesitate to contact our support team.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+				<p><a href="{{unsubscribeUrl}}">Manage notification preferences</a></p>
+			</div>
+		</div>
+	</body>
+</html>

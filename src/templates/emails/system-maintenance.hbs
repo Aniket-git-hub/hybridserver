@@ -1,0 +1,75 @@
+<!-- src/templates/emails/system-maintenance.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Scheduled System Maintenance</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#673ab7; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .footer { text-align:
+			center; margin-top: 20px; font-size: 12px; color: #777; }
+			.maintenance-box { background-color: #ede7f6; padding: 15px; margin:
+			15px 0; border-radius: 5px; border-left: 4px solid #673ab7; }
+			.time-box { background-color: #f5f5f5; padding: 10px; margin: 10px
+			0; text-align: center; border-radius: 3px; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Scheduled System Maintenance</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p>We are writing to inform you about upcoming scheduled
+					maintenance for
+					{{appName}}. During this time, our system will be
+					temporarily unavailable as we implement important updates
+					and improvements.</p>
+
+				<div class="maintenance-box">
+					<h3>Maintenance Details:</h3>
+					<p><strong>Date:</strong> {{maintenanceDate}}</p>
+					<div class="time-box">
+						<p><strong>Start Time:</strong>
+							{{startTime}}
+							{{timeZone}}</p>
+						<p><strong>End Time:</strong>
+							{{endTime}}
+							{{timeZone}}</p>
+						<p><strong>Estimated Duration:</strong> {{duration}}</p>
+					</div>
+					<p><strong>Affected Services:</strong>
+						{{affectedServices}}</p>
+				</div>
+
+				<p>During this maintenance period, you will not be able to
+					access
+					{{appName}}
+					or receive alerts and notifications. We recommend taking the
+					following actions before the maintenance begins:</p>
+				<ul>
+					<li>Download any essential reports you might need during the
+						maintenance window</li>
+					<li>Check your compliance dashboard for any imminent
+						expirations</li>
+					<li>Complete any pending actions or updates in the system</li>
+				</ul>
+
+				<p>We apologize for any inconvenience this may cause and
+					appreciate your understanding as we work to improve our
+					services. If you have any urgent concerns during the
+					maintenance period, please contact our support team at
+					{{emergencyContact}}.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+			</div>
+		</div>
+	</body>
+</html>

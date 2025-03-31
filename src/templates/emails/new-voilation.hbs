@@ -1,0 +1,99 @@
+<!-- src/templates/emails/new-violation.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>New Traffic Violation Detected</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#ff5722; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .button { display:
+			inline-block; padding: 12px 24px; background-color: #4a86e8; color:
+			white; text-decoration: none; border-radius: 4px; margin: 20px 0;
+			font-weight: bold; } .footer { text-align: center; margin-top: 20px;
+			font-size: 12px; color: #777; } .violation-box { background-color:
+			#fff3e0; padding: 15px; margin: 15px 0; border-radius: 5px;
+			border-left: 4px solid #ff5722; } .violation-details { margin: 15px
+			0; } .detail-row { display: flex; margin-bottom: 8px; }
+			.detail-label { font-weight: bold; width: 150px; } .action-required
+			{ color: #d32f2f; font-weight: bold; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>New Traffic Violation Detected</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p>We are notifying you that a new traffic violation has been
+					detected for one of your fleet vehicles.</p>
+
+				<div class="violation-box">
+					<h3>Violation Details:</h3>
+					<div class="violation-details">
+						<div class="detail-row">
+							<span class="detail-label">Challan Number:</span>
+							<span>{{challanNumber}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Vehicle:</span>
+							<span>{{vehicleNumber}} - {{vehicleModel}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Driver:</span>
+							<span>{{driverName}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Violation Type:</span>
+							<span>{{violationType}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Location:</span>
+							<span>{{violationLocation}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Date & Time:</span>
+							<span>{{violationDateTime}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Fine Amount:</span>
+							<span>{{fineAmount}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Due Date:</span>
+							<span>{{dueDate}}</span>
+						</div>
+						<div class="detail-row">
+							<span class="detail-label">Status:</span>
+							<span class="action-required">{{status}}</span>
+						</div>
+					</div>
+				</div>
+
+				<p class="action-required">Action Required: This violation
+					requires your attention. Please review the details and take
+					appropriate action before the due date to avoid additional
+					penalties.</p>
+
+				<div style="text-align: center;">
+					<a href="{{violationDetailsUrl}}" class="button">View
+						Violation Details</a>
+				</div>
+
+				<p>You can pay the fine, contest the violation, or assign it to
+					the responsible driver through your
+					{{appName}}
+					dashboard.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+				<p><a href="{{unsubscribeUrl}}">Manage notification preferences</a></p>
+			</div>
+		</div>
+	</body>
+</html>

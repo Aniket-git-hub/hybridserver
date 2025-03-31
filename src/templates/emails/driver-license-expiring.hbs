@@ -1,0 +1,84 @@
+<!-- src/templates/emails/driver-license-expiring.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Driver License Expiration Warning</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#ff9800; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .button { display:
+			inline-block; padding: 12px 24px; background-color: #4a86e8; color:
+			white; text-decoration: none; border-radius: 4px; margin: 20px 0;
+			font-weight: bold; } .footer { text-align: center; margin-top: 20px;
+			font-size: 12px; color: #777; } .warning-box { background-color:
+			#fff3e0; padding: 15px; margin: 15px 0; border-radius: 5px;
+			border-left: 4px solid #ff9800; } .license-list { margin: 15px 0; }
+			.license-item { margin-bottom: 10px; padding-bottom: 10px;
+			border-bottom: 1px solid #eee; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Driver License Expiration Warning</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p>This is an important notification regarding upcoming driver
+					license expirations for your fleet. The following driver
+					licenses will expire soon and require your attention:</p>
+
+				<div class="warning-box">
+					<h3>Licenses Expiring Soon:</h3>
+					<div class="license-list">
+						{{#each expiringLicenses}}
+							<div class="license-item">
+								<p><strong>Driver:</strong>
+									{{this.driverName}}
+									(ID:
+									{{this.driverId}})</p>
+								<p><strong>License Number:</strong>
+									{{this.licenseNumber}}</p>
+								<p><strong>License Type:</strong>
+									{{this.licenseType}}</p>
+								<p><strong>Expiry Date:</strong>
+									{{this.expiryDate}}</p>
+								<p><strong>Days Remaining:</strong>
+									{{this.daysRemaining}}</p>
+								<p><strong>Assigned Vehicle:</strong>
+									{{this.assignedVehicle}}</p>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+
+				<p>Please ensure that these drivers renew their licenses before
+					expiration. Driving with an expired license can result in:</p>
+				<ul>
+					<li>Legal penalties for both the driver and your company</li>
+					<li>Insurance coverage issues in case of accidents</li>
+					<li>Regulatory compliance violations</li>
+					<li>Potential suspension of your vehicle operations</li>
+				</ul>
+
+				<div style="text-align: center;">
+					<a href="{{driversUrl}}" class="button">Manage Drivers</a>
+				</div>
+
+				<p>Once the licenses have been renewed, please update the
+					information in your
+					{{appName}}
+					account to maintain accurate records.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+				<p><a href="{{unsubscribeUrl}}">Manage notification preferences</a></p>
+			</div>
+		</div>
+	</body>
+</html>

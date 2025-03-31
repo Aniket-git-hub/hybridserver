@@ -1,0 +1,89 @@
+<!-- src/templates/emails/violation-payment-due.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Urgent: Violation Payment Due</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#d32f2f; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .button { display:
+			inline-block; padding: 12px 24px; background-color: #d32f2f; color:
+			white; text-decoration: none; border-radius: 4px; margin: 20px 0;
+			font-weight: bold; } .footer { text-align: center; margin-top: 20px;
+			font-size: 12px; color: #777; } .urgent-box { background-color:
+			#ffebee; padding: 15px; margin: 15px 0; border-radius: 5px;
+			border-left: 4px solid #d32f2f; } .violation-table { width: 100%;
+			border-collapse: collapse; margin: 15px 0; } .violation-table th,
+			.violation-table td { padding: 10px; text-align: left;
+			border-bottom: 1px solid #ddd; } .violation-table th {
+			background-color: #f2f2f2; } .deadline-warning { font-weight: bold;
+			color: #d32f2f; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Urgent: Violation Payment Due</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p class="deadline-warning">URGENT REMINDER: The following
+					traffic violation payments are due within the next 48 hours.
+					Immediate action is required to avoid additional penalties.</p>
+
+				<div class="urgent-box">
+					<h3>Violations Due Soon:</h3>
+					<table class="violation-table">
+						<thead>
+							<tr>
+								<th>Challan #</th>
+								<th>Vehicle</th>
+								<th>Fine Amount</th>
+								<th>Due Date</th>
+								<th>Hours Left</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each dueViolations}}
+								<tr>
+									<td>{{this.challanNumber}}</td>
+									<td>{{this.vehicleNumber}}</td>
+									<td>{{this.fineAmount}}</td>
+									<td>{{this.dueDate}}</td>
+									<td
+										class="deadline-warning"
+									>{{this.hoursLeft}}</td>
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+
+				<p>Failure to pay these fines by the due date may result in:</p>
+				<ul>
+					<li>Increased penalty amounts</li>
+					<li>Vehicle impoundment</li>
+					<li>Additional legal complications</li>
+					<li>Negative impact on your company's compliance record</li>
+				</ul>
+
+				<div style="text-align: center;">
+					<a href="{{paymentPortalUrl}}" class="button">Pay Now</a>
+				</div>
+
+				<p>You can pay these fines directly through your
+					{{appName}}
+					dashboard or through the official payment channels.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+				<p><a href="{{unsubscribeUrl}}">Manage notification preferences</a></p>
+			</div>
+		</div>
+	</body>
+</html>

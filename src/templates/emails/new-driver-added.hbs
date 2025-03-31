@@ -1,0 +1,97 @@
+<!-- src/templates/emails/new-driver-added.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>New Driver Added to Fleet</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#4a86e8; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .button { display:
+			inline-block; padding: 12px 24px; background-color: #4a86e8; color:
+			white; text-decoration: none; border-radius: 4px; margin: 20px 0;
+			font-weight: bold; } .footer { text-align: center; margin-top: 20px;
+			font-size: 12px; color: #777; } .driver-info { background-color:
+			#e8f4ff; padding: 15px; margin: 15px 0; border-radius: 5px; }
+			.info-row { display: flex; margin-bottom: 8px; } .info-label {
+			font-weight: bold; width: 150px; } .document-status { padding: 3px
+			8px; border-radius: 3px; font-size: 12px; } .verified {
+			background-color: #e8f5e9; color: #2e7d32; } .pending {
+			background-color: #fff3e0; color: #e65100; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>New Driver Added to Fleet</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p>A new driver has been successfully added to your fleet in
+					{{appName}}.</p>
+
+				<div class="driver-info">
+					<h3>Driver Information:</h3>
+					<div class="info-row">
+						<span class="info-label">Name:</span>
+						<span>{{driverName}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">Driver ID:</span>
+						<span>{{driverId}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">License Number:</span>
+						<span>{{licenseNumber}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">License Type:</span>
+						<span>{{licenseType}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">License Expiry:</span>
+						<span>{{licenseExpiry}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">Contact Number:</span>
+						<span>{{contactNumber}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">Assigned Vehicle:</span>
+						<span>{{assignedVehicle}}</span>
+					</div>
+					<div class="info-row">
+						<span class="info-label">Documents Status:</span>
+						<span>
+							<span
+								class="document-status {{documentsStatusClass}}"
+							>{{documentsStatus}}</span>
+						</span>
+					</div>
+				</div>
+
+				<p>Please ensure all driver information and documents are
+					complete and verified. Any pending verification steps should
+					be completed as soon as possible.</p>
+
+				<div style="text-align: center;">
+					<a href="{{driverProfileUrl}}" class="button">View Driver
+						Profile</a>
+				</div>
+
+				<p>For any changes or updates to this driver's information,
+					please visit your
+					{{appName}}
+					dashboard.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+				<p><a href="{{unsubscribeUrl}}">Manage notification preferences</a></p>
+			</div>
+		</div>
+	</body>
+</html>

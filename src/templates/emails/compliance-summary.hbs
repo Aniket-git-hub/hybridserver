@@ -1,0 +1,125 @@
+<!-- src/templates/emails/compliance-summary.hbs -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Weekly Compliance Summary</title>
+		<style>
+			body { font-family: Arial, sans-serif; line-height: 1.6; color:
+			#333; margin: 0; padding: 0; } .container { max-width: 600px;
+			margin: 0 auto; padding: 20px; } .header { background-color:
+			#4a86e8; padding: 20px; text-align: center; color: white; } .content
+			{ padding: 20px; background-color: #f9f9f9; } .button { display:
+			inline-block; padding: 12px 24px; background-color: #4a86e8; color:
+			white; text-decoration: none; border-radius: 4px; margin: 20px 0;
+			font-weight: bold; } .footer { text-align: center; margin-top: 20px;
+			font-size: 12px; color: #777; } .summary-box { background-color:
+			#e8f4ff; padding: 15px; margin: 15px 0; border-radius: 5px; }
+			.stats-container { display: flex; justify-content: space-between;
+			flex-wrap: wrap; margin: 20px 0; } .stat-box { width: 30%;
+			background-color: #fff; padding: 15px; margin-bottom: 15px;
+			border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			text-align: center; } .stat-number { font-size: 24px; font-weight:
+			bold; margin: 10px 0; } .good { color: #4caf50; } .warning { color:
+			#ff9800; } .danger { color: #d32f2f; } .compliance-table { width:
+			100%; border-collapse: collapse; margin: 15px 0; } .compliance-table
+			th, .compliance-table td { padding: 10px; text-align: left;
+			border-bottom: 1px solid #ddd; } .compliance-table th {
+			background-color: #f2f2f2; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Weekly Compliance Summary</h1>
+			</div>
+			<div class="content">
+				<p>Hello {{name}},</p>
+				<p>Here is your weekly compliance summary report for the period:
+					<strong>{{reportStartDate}}</strong>
+					to
+					<strong>{{reportEndDate}}</strong>.</p>
+
+				<div class="summary-box">
+					<h3>Fleet Compliance Overview:</h3>
+
+					<div class="stats-container">
+						<div class="stat-box">
+							<p>Compliant Vehicles</p>
+							<p
+								class="stat-number good"
+							>{{compliantVehicles}}%</p>
+						</div>
+						<div class="stat-box">
+							<p>Warning Status</p>
+							<p
+								class="stat-number warning"
+							>{{warningVehicles}}%</p>
+						</div>
+						<div class="stat-box">
+							<p>Non-Compliant</p>
+							<p
+								class="stat-number danger"
+							>{{nonCompliantVehicles}}%</p>
+						</div>
+					</div>
+
+					<h4>Upcoming Expirations (Next 30 Days):</h4>
+					<table class="compliance-table">
+						<thead>
+							<tr>
+								<th>Document Type</th>
+								<th>Count</th>
+								<th>Earliest Expiry</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each upcomingExpirations}}
+								<tr>
+									<td>{{this.documentType}}</td>
+									<td>{{this.count}}</td>
+									<td>{{this.earliestExpiry}}</td>
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
+
+					<h4>Recently Expired Documents:</h4>
+					<table class="compliance-table">
+						<thead>
+							<tr>
+								<th>Document Type</th>
+								<th>Count</th>
+								<th>Days Overdue</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each recentlyExpired}}
+								<tr>
+									<td>{{this.documentType}}</td>
+									<td>{{this.count}}</td>
+									<td>{{this.daysOverdue}}</td>
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+
+				<div style="text-align: center;">
+					<a href="{{reportUrl}}" class="button">View Detailed Report</a>
+				</div>
+
+				<p>For a more detailed breakdown, please visit your compliance
+					dashboard. If you need assistance resolving any compliance
+					issues, contact our support team at
+					{{supportEmail}}.</p>
+
+				<p>Best regards,<br />The {{appName}} Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{currentYear}} {{appName}}. All rights reserved.</p>
+				<p>{{companyAddress}}</p>
+				<p><a href="{{unsubscribeUrl}}">Manage notification preferences</a></p>
+			</div>
+		</div>
+	</body>
+</html>
